@@ -1,15 +1,27 @@
-import React from "react";
-//import "./sty";
+import React, { useState } from "react";
+import "../components/style.css";
+import WeatherDetails from "./WeatherDetails";
 
-function searchMain() {
+function SearchMain() {
+  const [searchTerm, setSearchTerm] = useState("mumbai");
+  //console.log(searchTerm);
   return (
-    <div className="wrap">
-      <div className="search">
-        <input type="search" placeholder="tyype cityy name..." id="search" />
+    <>
+      <div className="wrap">
+        <div className="search">
+          <input
+            type="search"
+            placeholder="search city..."
+            id="search"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
+        <button className="searchButton">Search</button>
       </div>
-      <button className="searchButton">Search City</button>
-    </div>
+      <WeatherDetails />
+    </>
   );
 }
 
-export default searchMain;
+export default SearchMain;

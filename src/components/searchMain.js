@@ -1,10 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../components/style.css";
 import WeatherDetails from "./WeatherDetails";
 
 function SearchMain() {
   const [searchTerm, setSearchTerm] = useState("mumbai");
-  //console.log(searchTerm);
+
+  //useEffect
+  //Async
+  //Promises
+  //Try and Catch
+
+  useEffect(() => {}, [searchTerm]);
+
   return (
     <>
       <div className="wrap">
@@ -17,7 +24,9 @@ function SearchMain() {
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
-        <button className="searchButton">Search</button>
+        <button className="searchButton" onClick={getWeatherInfo}>
+          Search
+        </button>
       </div>
       <WeatherDetails />
     </>

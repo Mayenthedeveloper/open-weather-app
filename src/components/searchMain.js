@@ -4,14 +4,15 @@ import WeatherDetails from "./WeatherDetails";
 
 function SearchMain() {
   const [searchTerm, setSearchTerm] = useState("mumbai");
-  const getWeatherInfo = () => {
-    try {
-      let url = `https://api.openweathermap.org/data/2.5/weather?q=${searchTerm}&appid=7de7fa9260b5868611bd72e03d263222`
 
-      let res = await fetch(url)
-      let data = await res.json(data)
-    }catch(error){
-console.log(error)
+  const getWeatherInfo = async () => {
+    try {
+      let url = `https://api.openweathermap.org/data/2.5/weather?q=${searchTerm}&appid=7de7fa9260b5868611bd72e03d263222`;
+
+      let res = await fetch(url);
+      let data = await res.json(data);
+    } catch (error) {
+      console.log(error);
     }
   };
 

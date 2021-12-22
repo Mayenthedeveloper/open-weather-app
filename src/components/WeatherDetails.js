@@ -1,6 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 
-function WeatherDetails() {
+function WeatherDetails({
+  temp,
+  humidity,
+  pressure,
+  weatherType,
+  name,
+  speed,
+  country,
+  sunset,
+}) {
+  const [weatherState, setWeatherState] = useState("");
+
+  //converting the seconds in time
+  let sec = sunset;
+  let date = new Date(sec * 1000);
+  let timeStr = `${date.getHours()}: ${date.getMinutes()}`;
+
   return (
     <>
       <article className="widget">
@@ -9,11 +25,13 @@ function WeatherDetails() {
         </div>
         <div className="weatherInfo">
           <div className="temperature">
-            <span>23.99&deg;</span>
+            <span>{temp}&deg;</span>
           </div>
           <div className="description">
-            <div className="weatherCondition">sunny</div>
-            <div className="place">Mumbai, IN</div>
+            <div className="weatherCondition">{weatherType}</div>
+            <div className="place">
+              {name}, {country}
+            </div>
           </div>
         </div>
         <div className="date">{new Date().toLocaleString()}</div>
@@ -24,7 +42,7 @@ function WeatherDetails() {
                 <i className={"wi wi-sunset"}></i>
               </p>
               <p className="extra-info-leftside">
-                6:30 PM <br />
+                {timeStr} PM <br />
                 Sunset
               </p>
             </div>
@@ -34,7 +52,7 @@ function WeatherDetails() {
                 <i className={"wi wi-humidity"}></i>
               </p>
               <p className="extra-info-leftside">
-                444
+                {humidity}
                 <br />
                 Humidity
               </p>
@@ -46,8 +64,9 @@ function WeatherDetails() {
                 <i className={"wi wi-rain"}></i>
               </p>
               <p className="extra-info-leftside">
-                433 <br />
-                Pressuure
+                {pressure}
+                <br />
+                Pressure
               </p>
             </div>
 
@@ -56,7 +75,7 @@ function WeatherDetails() {
                 <i className={"wi wi-strong-wind"}></i>
               </p>
               <p className="extra-info-leftside">
-                422
+                {speed}
                 <br />
                 Speed
               </p>

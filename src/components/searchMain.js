@@ -59,10 +59,10 @@ function SearchMain() {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
+          <button className="searchButton" onClick={getWeatherInfo}>
+            Search
+          </button>
         </div>
-        <button className="searchButton" onClick={getWeatherInfo}>
-          Search
-        </button>
       </div>
       {/* //this the weatherdeatails page */}
       <WeatherDetails {...tempInfo} />

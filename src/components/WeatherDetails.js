@@ -35,7 +35,6 @@ function WeatherDetails({
       }
     }
   }, [weatherType]);
-
   //converting the seconds in time
   let sec = sunset;
   let date = new Date(sec * 1000);

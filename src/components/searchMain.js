@@ -35,18 +35,9 @@ function SearchMain() {
     }
   };
 
-  //api.openweathermap.org/data/2.5/weather?q={city name}&appid=7de7fa9260b5868611bd72e03d263222
-
   useEffect(() => {
     getWeatherInfo();
   }, []);
-
-  //useEffect
-  //Async
-  //Promises
-  //Try and Catch
-
-  //useEffect(() => {}, [searchTerm]);
 
   return (
     <>
@@ -64,7 +55,7 @@ function SearchMain() {
           </button>
         </div>
       </div>
-      {/* //this the weatherdeatails page */}
+
       <WeatherDetails {...tempInfo} />
     </>
   );
